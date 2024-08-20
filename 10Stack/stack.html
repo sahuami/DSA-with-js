@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>stack</h1>
+    <input style=" font-size: large;" type="text" placeholder="enter stack element" id="newEl">
+    <br>
+    <div style="display: flex;  gap: 20px; margin-top: 20px; ">
+        <button onclick="push()"> Add element in stack </button>
+
+        <button onclick="pop()"> delete element to stack </button>
+        <button onclick="display()">display all element of stack</button>
+    </div>
+
+</body>
+<script>
+
+    let stack = []
+    let currentSize = stack.length
+    let max = 5
+
+    function push() {
+        let newVal = document.getElementById('newEl').value
+        if (currentSize >= max) {
+            console.log(`can't add ${newVal} because stack is full `)
+        }
+        else {
+            stack[currentSize] = newVal;
+            currentSize++
+            console.log(`you value ${document.getElementById('newEl').value} are added in stack`)
+            console.log(stack)
+            document.getElementById('newEl').value = ""
+        }
+    }
+    function pop() {
+        if (currentSize > 0) {
+            currentSize--
+            stack.length = currentSize
+            console.log(stack)
+
+        }
+        else {
+            console.log("Stack is already empty")
+        }
+    }
+    function display() {
+        for (let i = 0; i < currentSize; i++) {
+            console.log(`In Stack the value ${stack[i]} lies at  ${i} index } `)
+        }
+
+    }
+
+
+
+</script>
+
+</html>
